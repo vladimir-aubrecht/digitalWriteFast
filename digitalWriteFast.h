@@ -182,6 +182,22 @@
 (((P) == 24) ? 4 : (((P) == 25) ? 7 : (((P) == 26) ? 4 : (((P) == 27) ? 5 : 6 )))))))))))))))))))
 #  endif
 
+// --- Adafruit Feather32u4 ---
+#elif (defined(ADAFRUIT_AVR_FEATHER32U4))
+
+#define __digitalPinToPortReg(P) \
+((((P) <= 3) || (P) == 6 || (P) == 12 || (P) == 25) ? &PORTD : (((P) == 5 || (P) == 13) ? &PORTC : (((P) >= 18 && (P) <= 23)) ? &PORTF : (((P) == 7) ? &PORTE : &PORTB)))
+#define __digitalPinToDDRReg(P) \
+((((P) <= 3) || (P) == 6 || (P) == 12 || (P) == 25) ? &DDRD : (((P) == 5 || (P) == 13) ? &DDRC : (((P) >= 18 && (P) <= 23)) ? &DDRF : (((P) == 7) ? &DDRE : &DDRB)))
+#define __digitalPinToPINReg(P) \
+((((P) <= 3) || (P) == 6 || (P) == 12 || (P) == 25) ? &PIND : (((P) == 5 || (P) == 13) ? &PINC : (((P) >= 18 && (P) <= 23)) ? &PINF : (((P) == 7) ? &PINE : &PINB)))
+#define __digitalPinToBit(P) \
+(((P) >= 8 && (P) <= 11) ? (P) - 4 : \
+(((P) >= 18 && (P) <= 21) ? 25 - (P) : \
+(((P) == 0) ? 2 : (((P) == 1) ? 3 : (((P) == 2) ? 1 : (((P) == 3) ? 0 : (((P) == 5) ? 6 : (((P) == 6) ? 7 : (((P) == 13) ? 7 : \
+(((P) == 14) ? 3 : (((P) == 15) ? 1 : (((P) == 16) ? 2 : (((P) == 22) ? 1 : (((P) == 23) ? 0 : \
+(((P) == 25) ? 4 : (((P) == 12) ? 6 : 6 ))))))))))))))))
+
 // --- Arduino Uno and ATmega168/328 based boards ---
 #elif (defined(ARDUINO_AVR_UNO) || \
        defined(ARDUINO_AVR_DUEMILANOVE) || \

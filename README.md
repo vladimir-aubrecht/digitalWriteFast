@@ -50,7 +50,7 @@ This notifies the programmer the specific line where code is still slow.
 
 
 # Speed
-For a 16 MHz Uno digitalWrite() is speed up from 5.8 µs to 125 ns, able to generate a 4 MHz signal instead of 86 kHz.
+For a 16 MHz Uno digitalWrite() is speed up from 5.8 ï¿½s to 125 ns, able to generate a 4 MHz signal instead of 86 kHz.
 More info in: [/NOTES/NOTES.md](https://github.com/NicksonYap/digitalWriteFast/blob/master/NOTES/NOTES.md)
 
 This is the waveform generated with the [Timing example](https://github.com/ArminJo/digitalWriteFast/blob/master/examples/Timing/Timing.ino#L81).
@@ -63,6 +63,7 @@ This is the waveform generated with the [Timing example](https://github.com/Armi
 * Arduino with ATmega644 or Atmega644P chip
 * Arduino with ATmega4809 chip
 * Arduino with ATtiny chip
+* Adafruit Feather32u4 (must #define ADAFRUIT_AVR_FEATHER32U4)
 
 
 # Revision History
